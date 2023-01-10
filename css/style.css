@@ -908,6 +908,12 @@ svg path {
   display: none !important;
 }
 
+@media (min-width: 31.25em) {
+  .schedule__row br {
+    display: none;
+  }
+}
+
 @media (min-width: 87.5em) {
   .tour__body {
     -webkit-column-gap: 6.9375rem;
@@ -1057,6 +1063,14 @@ svg path {
 @media (max-width: 550px) {
   .swiper {
     overflow: hidden;
+  }
+}
+
+@media (max-width: 22em) {
+  .schedule__row {
+    -webkit-column-gap: 0.625rem;
+       -moz-column-gap: 0.625rem;
+            column-gap: 0.625rem;
   }
 }
 
@@ -1373,20 +1387,35 @@ svg path {
   }
 
   .schedule__row {
-    -ms-grid-columns: 3.75rem 1fr auto;
-    grid-template-columns: 3.75rem 1fr auto;
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3, 1fr);
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 
   .schedule__row span {
     display: none;
   }
+
+  .schedule__media svg {
+    width: 14px;
+    height: 20px;
+  }
+
+  .schedule__button {
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
 }
 
-@media (max-width: 22.1875em) {
+@media (max-width: 24.375em) {
   .schedule__row {
     -webkit-column-gap: 0.3125rem;
        -moz-column-gap: 0.3125rem;
             column-gap: 0.3125rem;
+    -ms-grid-columns: 3.75rem 1fr auto;
+    grid-template-columns: 3.75rem 1fr auto;
   }
 }
 
