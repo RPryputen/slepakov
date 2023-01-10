@@ -478,15 +478,13 @@ svg path {
 }
 
 .schedule__row {
-  -ms-grid-column-align: center;
-      justify-self: center;
   display: -ms-grid;
   display: grid;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-grid-columns: (auto)[3];
-  grid-template-columns: repeat(3, auto);
+  -ms-grid-columns: (1fr)[2] auto;
+  grid-template-columns: repeat(2, 1fr) auto;
   row-gap: 1.5625rem;
   position: relative;
 }
@@ -821,10 +819,6 @@ svg path {
           justify-content: center;
 }
 
-.spotify__body {
-  max-width: 64.375rem;
-}
-
 .actions-spotify {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1029,6 +1023,10 @@ svg path {
 
   .spotify__container {
     row-gap: 9.375rem;
+  }
+
+  .spotify__body {
+    width: 64.375rem;
   }
 
   .actions-spotify {
@@ -1291,6 +1289,10 @@ svg path {
     row-gap: 1.5625rem;
   }
 
+  .spotify__body {
+    width: 31.25rem;
+  }
+
   .actions-spotify {
     gap: 0.9375rem;
   }
@@ -1371,8 +1373,20 @@ svg path {
   }
 
   .schedule__row {
-    -ms-grid-columns: 3.4375rem 1fr auto;
-    grid-template-columns: 3.4375rem 1fr auto;
+    -ms-grid-columns: 3.75rem 1fr auto;
+    grid-template-columns: 3.75rem 1fr auto;
+  }
+
+  .schedule__row span {
+    display: none;
+  }
+}
+
+@media (max-width: 22.1875em) {
+  .schedule__row {
+    -webkit-column-gap: 0.3125rem;
+       -moz-column-gap: 0.3125rem;
+            column-gap: 0.3125rem;
   }
 }
 
@@ -1653,6 +1667,18 @@ svg path {
     }
 }
 
+@supports (width: clamp( 31.25rem , -27.6346291838rem  +  122.6795055784vw , 64.375rem )) {
+    .spotify__body {
+      width: clamp( 31.25rem , -27.6346291838rem  +  122.6795055784vw , 64.375rem );
+    }
+}
+
+@supports not (width: clamp( 31.25rem , -27.6346291838rem  +  122.6795055784vw , 64.375rem )) {
+    .spotify__body {
+      width: calc(31.25rem + 33.125 * (100vw - 47.99875rem) / 27.00125);
+    }
+}
+
 @supports (gap: clamp( 0.9375rem , -7.6174366927rem  +  17.8232489237vw , 5.75rem )) {
     .actions-spotify {
       gap: clamp( 0.9375rem , -7.6174366927rem  +  17.8232489237vw , 5.75rem );
@@ -1784,6 +1810,20 @@ svg path {
       -webkit-column-gap: calc(1.5625rem + 5.375 * (100vw - 84.375rem) / 3.125);
          -moz-column-gap: calc(1.5625rem + 5.375 * (100vw - 84.375rem) / 3.125);
               column-gap: calc(1.5625rem + 5.375 * (100vw - 84.375rem) / 3.125);
+    }
+}
+}
+
+@media (min-width: 20em) and (max-width: 47.9375em) {
+@supports (width: clamp( 18.75rem , 9.8014541387rem  +  44.7427293065vw , 31.25rem )) {
+    .spotify__body {
+      width: clamp( 18.75rem , 9.8014541387rem  +  44.7427293065vw , 31.25rem );
+    }
+}
+
+@supports not (width: clamp( 18.75rem , 9.8014541387rem  +  44.7427293065vw , 31.25rem )) {
+    .spotify__body {
+      width: calc(18.75rem + 12.5 * (100vw - 20rem) / 27.9375);
     }
 }
 }
